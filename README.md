@@ -34,6 +34,7 @@ Things you may want to cover:
 ### Association
 
 - has_one :items
+- has_one : purchase
 
 ## items テーブル
 | Column    | Type       | Options                        |
@@ -44,4 +45,17 @@ Things you may want to cover:
 | category  | string     | null: false                    |
 | items_id  | references | null: false, foreign_key: true |
 
+### Association
 - belongs_to :users
+- has_one : purchase
+
+## purchase テーブル
+| Column   | Type       | Options                        |
+| -------- | ---------- | ------------------------------ |
+| user_id  | references | null: false, foreign_key: true |
+| address  | string     | null: false                    |
+| items_id | references | null: false, foreign_key: true |
+
+### Association
+- belongs_to :users
+- belongs_to :items
