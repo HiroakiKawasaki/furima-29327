@@ -52,7 +52,7 @@ Things you may want to cover:
 | area_id         | integer    | null: false                    |
 | date_id         | integer    | null: false                    |
 | user            | references | null: false, foreign_key: true |
-| explanation     | text       | 　　　　　　　　　　　             |
+| explanation     | text       | foreign_key: true              |
 
 ### Association
 - belongs_to :user
