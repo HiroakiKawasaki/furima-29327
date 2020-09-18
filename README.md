@@ -33,9 +33,7 @@ Things you may want to cover:
 | first_name       | string  | null: false |
 | family_name_kana | string  | null: false |
 | first_name_kana  | string  | null: false |
-| birthday_year    | integer | null: false |
-| birthday_month   | integer | null: false |
-| birthday_day     | integer | null: false |
+| birthday         | string  | null: false |
 
 ### Association
 
@@ -44,22 +42,21 @@ Things you may want to cover:
 
 ## items テーブル
 
-| Column       | Type       | Options                        |
-| ------------ | ---------- | ------------------------------ |
-| name         | string     | null: false                    |
-| price        | integer    | null: false                    |
-| category     | integer    | null: false                    |
-| status       | integer    | null: false                    |
-| delivery_fee | integer    | null: false                    |
-| area         | integer    | null: false                    |
-| date         | integer    | null: false                    |
-| user         | references | null: false, foreign_key: true |
-| explanation  | references | foreign_key: true              |
+| Column          | Type       | Options                        |
+| --------------- | ---------- | ------------------------------ |
+| name            | string     | null: false                    |
+| price           | integer    | null: false                    |
+| category_id     | integer    | null: false                    |
+| status_id       | integer    | null: false                    |
+| delivery_fee_id | integer    | null: false                    |
+| area_id         | integer    | null: false                    |
+| date_id         | integer    | null: false                    |
+| user            | references | null: false, foreign_key: true |
+| explanation     | text       | foreign_key: true              |
 
 ### Association
 - belongs_to :user
 - has_one :purchase
-- has_one :explanation
 
 ## purchases テーブル
 
@@ -78,7 +75,7 @@ Things you may want to cover:
 | Column        | Type       | Options                        |
 | ------------- | ---------- | ------------------------------ |
 | post          | string     | null: false                    |
-| prefectures   | integer    | null: false                    |
+| prefecture_id | integer    | null: false                    |
 | cities        | string     | null: false                    |
 | address       | string     | null: false                    |
 | building_name | string     |                                |
@@ -87,12 +84,3 @@ Things you may want to cover:
 
 ### Association
 - belongs_to :purchase
-
-## explanation テーブル
-
-| Column      | Type   | Options |
-| ----------- | ------ | ------- |
-| explanation | string |         |
-
-### Association
-- belongs_to :item
