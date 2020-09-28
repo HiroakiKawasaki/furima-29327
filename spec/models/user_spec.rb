@@ -12,8 +12,8 @@ RSpec.describe User, type: :model do
           expect(@user).to be_valid
         end
         it "passwordが6文字以上であれば登録できる" do
-          @user.password = "000000"
-          @user.password_confirmation = "000000"
+          @user.password = "abc000"
+          @user.password_confirmation = "abc000"
           expect(@user).to be_valid        
         end
         it "passwordが半角英数混合であれば登録できる" do
@@ -24,8 +24,8 @@ RSpec.describe User, type: :model do
         it "ユーザー本名がそれぞれ全角（漢字・ひらがな・カタカナ）であれば登録できる" do
           @user.family_name = "あいうえ男"
           @user.first_name = "あいうえ男"
-          @user.family_name_kana = "あいうえ男"
-          @user.first_name_kana = "あいうえ男"
+          @user.family_name_kana = "アイウエオ"
+          @user.first_name_kana = "アイウエオ"
           expect(@user).to be_valid
         end
       end
@@ -76,20 +76,20 @@ RSpec.describe User, type: :model do
           @user.valid?
           expect(@user.errors.full_messages).to include("Family name kana can't be blank")      
         end
-        it "family_name_kanaに小文字が混合すると登録できない" do
-          @user.family_name_kana = "あa"
+        it "family_name_kanaに英数字、漢字、ひらがな、半角が混合すると登録できない" do
+          @user.family_name_kana = "あa阿"
           @user.valid?
-          expect(@user.errors.full_messages).to include("Family name kana 全角文字を使用してください")      
+          expect(@user.errors.full_messages).to include("Family name kana カタカナを使用してください")      
         end
         it "first_name_kanaが空だと登録できない" do
           @user.first_name_kana = ''
           @user.valid?
           expect(@user.errors.full_messages).to include("First name kana can't be blank")      
         end
-        it "first_name_kanaに小文字が混合すると登録できない" do
-          @user.first_name_kana = "あa"
+        it "first_name_kanaに英数字、漢字、ひらがな、半角が混合すると登録できない" do
+          @user.first_name_kana = "あa阿"
           @user.valid?
-          expect(@user.errors.full_messages).to include("First name kana 全角文字を使用してください")      
+          expect(@user.errors.full_messages).to include("First name kana カタカナを使用してください")      
         end
         it "birthdayが空だと登録できない" do
           @user.birthday = ''
