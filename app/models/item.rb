@@ -9,5 +9,4 @@ class Item < ApplicationRecord
   validates :delivery_fee_id, presence: true
   validates :area_id,         presence: true
   validates :date_id,         presence: true
- 
 end
