@@ -17,17 +17,6 @@ function tax() {
     fee.textContent = taxPrice
     income.textContent = incomeGain
     
-    // if (inputPrice >= 300 &&  inputPrice <= 9999999){
-    //   let taxPrice = inputPrice * 0.1;
-    //   console.log(taxPrice)
-    //   let income = inputPrice - taxPrice;
-    //   console.log(income)
-    //   add_tax_price.textContent = taxPrice;
-    //   profit.textContent = income;
-    // } else{
-      
-
-    // }
   })
   }
 
