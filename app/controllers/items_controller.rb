@@ -8,6 +8,7 @@ class ItemsController < ApplicationController
 
   def create
     @item = Item.create(item_params) 
+    @user = current_user
     if @item.valid?
       @item.save
       redirect_to root_path
