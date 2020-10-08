@@ -1,17 +1,14 @@
 function tax() {
   const onInput = document.getElementById("item-price")
-  console.log(onInput)
  
   onInput.addEventListener('input', function(){
     const Input = document.getElementById("item-price")
     const fee = document.getElementById("add-tax-price")
     const income = document.getElementById("profit")
 
-    console.log(Input)
      // ①入力された値を取得して変数に入れる
     
-     const inputPrice = Input.value;
-    console.log(inputPrice)
+    const inputPrice = Input.value;
     let taxPrice = inputPrice * 0.1;
     let incomeGain = inputPrice - taxPrice;
     fee.textContent = taxPrice

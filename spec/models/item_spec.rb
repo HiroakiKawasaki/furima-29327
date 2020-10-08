@@ -35,27 +35,27 @@ RSpec.describe Item, type: :model do
           expect(@item.errors.full_messages).to include("Explanation can't be blank")
         end
         it "カテゴリー欄が『--』だと登録できない" do
-          @item.category = '1'
+          @item.category = 1
           @item.valid?
           expect(@item.errors.full_messages).to include("Category must be greater than 1")
         end
         it "商品の状態欄が『--』だと登録できない" do
-          @item.status = '1'
+          @item.status = 1
           @item.valid?
           expect(@item.errors.full_messages).to include("Status must be greater than 1")
         end
         it "配送料の負担欄が『--』だと登録できない" do
-          @item.fee = '1'
+          @item.fee = 1
           @item.valid?
           expect(@item.errors.full_messages).to include("Fee must be greater than 1")
         end
         it "発送元の地域欄が『--』だと登録できない" do
-          @item.area = '1'
+          @item.area = 1
           @item.valid?
           expect(@item.errors.full_messages).to include("Area must be greater than 1")
         end
         it "発送までの日数欄が『--』だと登録できない" do
-          @item.arrival = '1'
+          @item.arrival = 1
           @item.valid?
           expect(@item.errors.full_messages).to include("Arrival must be greater than 1")
         end
