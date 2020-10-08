@@ -7,6 +7,7 @@ class ItemsController < ApplicationController
   end
 
   def create
+    @item = Item.new
     @item = Item.create(item_params) 
     @user = current_user
     if @item.valid?

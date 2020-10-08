@@ -6,12 +6,18 @@ class Item < ApplicationRecord
     validates :image
     validates :name
     validates :explanation
-    validates :category, numericality: { greater_than: 1 }
-    validates :status, numericality: { greater_than: 1 }
-    validates :fee , numericality: { greater_than: 1 }
-    validates :area, numericality: { greater_than: 1 }
-    validates :arrival, numericality: { greater_than: 1 }
+    validates :category
+    validates :status
+    validates :fee
+    validates :area
+    validates :arrival
     validates :price, format: { with: /\A[0-9]+\z/, message: 'Price Half-width number'}, numericality: { greater_than_or_equal_to: 300, less_than_or_equal_to: 9999999 }
-
+  end
+  with_options numericality: { greater_than: 1 } do
+    validates :category
+    validates :status
+    validates :fee 
+    validates :area
+    validates :arrival
   end
 end
