@@ -23,7 +23,6 @@ before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destro
 
   def show
     @item = Item.find(params[:id])
-    @user = User.find(params[:id])
   end
   private
 
