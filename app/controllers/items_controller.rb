@@ -1,11 +1,12 @@
 class ItemsController < ApplicationController
 # skip_before_action
+before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
+
   def new
     @item = Item.new
   end
 
   def create
-    binding.pry
     @item = Item.new(item_params)
     if @item.valid?
       @item.save
