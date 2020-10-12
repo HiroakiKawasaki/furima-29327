@@ -3,11 +3,11 @@ FactoryBot.define do
     association :user
     name {"abc"}    
     price {"500"}
-    category {"2"}
-    status {"2"}
-    fee {"2"}
-    area {"2"}
-    arrival {"2"}
+    category_id {"2"}
+    status_id {"2"}
+    fee_id{"2"}
+    area_id {"2"}
+    arrival_id {"2"}
     explanation {"商品です"}
 
     after(:build) do |item|

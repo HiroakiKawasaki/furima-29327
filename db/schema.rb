@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_30_053911) do
+ActiveRecord::Schema.define(version: 2020_10_12_010434) do
 
   create_table "active_storage_attachments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
@@ -33,20 +33,14 @@ ActiveRecord::Schema.define(version: 2020_09_30_053911) do
     t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
   end
 
-  create_table "category_ids", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.integer "category_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
   create_table "items", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
     t.integer "price", null: false
-    t.integer "category", null: false
-    t.integer "status", null: false
-    t.integer "fee", null: false
-    t.integer "area", null: false
-    t.integer "arrival", null: false
+    t.integer "category_id", null: false
+    t.integer "status_id", null: false
+    t.integer "fee_id", null: false
+    t.integer "area_id", null: false
+    t.integer "arrival_id", null: false
     t.bigint "user_id", null: false
     t.text "explanation", null: false
     t.datetime "created_at", precision: 6, null: false
