@@ -1,6 +1,8 @@
 class ItemsController < ApplicationController
 # skip_before_action
 before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
+before_action :set_item, only: [:edit, :show, :update]
+
 
   def new
     @item = Item.new
@@ -22,21 +24,21 @@ before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destro
   end
 
   def show
-    @item = Item.find(params[:id])
   end
 
   def edit
-    @item = Item.find(params[:id])
   end
 
   def update
-    @item = Item.find(params[:id])
-    # item.update(item_params)
     if @item.update(item_params)
       redirect_to item_path
     else
       render "edit"
     end
+  end
+
+  def set_item
+    @item = Item.find(params[:id])
   end
 
   private
