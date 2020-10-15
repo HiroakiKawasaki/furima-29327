@@ -1,5 +1,5 @@
 class Delivery < ApplicationRecord
-  belongs_to :purchase
+  belongs_to :order
 
   with_options presence: true do
     validates :post
