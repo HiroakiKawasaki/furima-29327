@@ -5,9 +5,8 @@ Rails.application.routes.draw do
   post '/items/:id/edit' => 'items#edit'
   
   resources :users
-  resources :items
-  resources :orders do
-    resources :items, only: [:create, :index]
+  resources :items do
+    resources :orders
   end
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html

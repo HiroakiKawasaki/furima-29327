@@ -1,11 +1,6 @@
 class Delivery < ApplicationRecord
+  extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to :order
+  belongs_to_active_hash :prefecture
 
-  with_options presence: true do
-    validates :post
-    validates :prefecture_id
-    validates :cities
-    validates :address
-    validates :phone_number
-  end
 end
