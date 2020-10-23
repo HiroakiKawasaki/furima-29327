@@ -16,5 +16,4 @@ class ApplicationController < ActionController::Base
       username == 'kawasaki' && password == '1515'
     end
   end
-
 end
