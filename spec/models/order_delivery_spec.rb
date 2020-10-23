@@ -63,7 +63,7 @@ RSpec.describe OrderDelivery, type: :model do
       it '電話番号が12桁以上の時登録できない' do
         @order_delivery.phone_number = '080123456789'
         @order_delivery.valid?
-        expect(@order_delivery.errors.full_messages).to include()
+        expect(@order_delivery.errors.full_messages).to include
       end
     end
   end

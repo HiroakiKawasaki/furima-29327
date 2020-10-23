@@ -23,9 +23,7 @@ class OrdersController < ApplicationController
   end
 
   def move_page
-    if @item.user == current_user || @item.order.presence
-      redirect_to root_path
-    end
+    redirect_to root_path if @item.user == current_user || @item.order.presence
   end
 
   private
@@ -36,10 +34,10 @@ class OrdersController < ApplicationController
 
   def pay_item
     Payjp.api_key = ENV['PAYJP_SECRET_KEY']
-      Payjp::Charge.create(
-        amount: @item.price,  # 商品の値段
-        card: order_delivery_params[:token], # カードトークン
-        currency: 'jpy'                 # 通貨の種類（日本円）
-      )
+    Payjp::Charge.create(
+      amount: @item.price,  # 商品の値段
+      card: order_delivery_params[:token], # カードトークン
+      currency: 'jpy'                 # 通貨の種類（日本円）
+    )
   end
 end
