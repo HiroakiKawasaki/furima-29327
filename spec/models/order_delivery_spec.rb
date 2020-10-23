@@ -18,6 +18,10 @@ RSpec.describe OrderDelivery, type: :model do
         @order_delivery.phone_number = '08012345678'
         expect(@order_delivery).to be_valid
       end
+      it '建物名が空欄でも保存ができる' do
+        @order_delivery.building_name = nil
+        expect(@order_delivery).to be_valid
+      end
     end
 
     context '商品の購入がうまくいかないとき' do
@@ -55,6 +59,11 @@ RSpec.describe OrderDelivery, type: :model do
         @order_delivery.post = '1234567'
         @order_delivery.valid?
         expect(@order_delivery.errors.full_messages).to include('Post is invalid. Include hyphen(-)')
+      end
+      it '電話番号が12桁以上の時登録できない' do
+        @order_delivery.phone_number = '080123456789'
+        @order_delivery.valid?
+        expect(@order_delivery.errors.full_messages).to include()
       end
     end
   end
