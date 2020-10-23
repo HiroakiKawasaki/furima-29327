@@ -12,7 +12,7 @@ class OrderDelivery
   end
   validates :post,          format: {with: /\A[0-9]{3}-[0-9]{4}\z/, message: "is invalid. Include hyphen(-)"}
   validates :prefecture_id, numericality: { greater_than: 1 }
-  validates :phone_number,  format: {with: /\A\d{11}\z/}
+  validates :phone_number,  format: {with: /(0{1}\d{9,10})/}
 
   def save
     order = Order.create(user_id: user_id, item_id: item_id)
