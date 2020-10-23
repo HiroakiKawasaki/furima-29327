@@ -1,8 +1,7 @@
 class ItemsController < ApplicationController
-# skip_before_action
-before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
-before_action :set_item, only: [:edit, :show, :update, :destroy]
-
+  # skip_before_action
+  before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
+  before_action :set_item, only: [:edit, :show, :update, :destroy]
 
   def new
     @item = Item.new
@@ -15,12 +14,12 @@ before_action :set_item, only: [:edit, :show, :update, :destroy]
       redirect_to root_path
     else
       render :new
-    end  
+    end
     @item.save
   end
 
   def index
-    @items = Item.all.order("created_at DESC")
+    @items = Item.all.order('created_at DESC')
   end
 
   def show
@@ -33,7 +32,7 @@ before_action :set_item, only: [:edit, :show, :update, :destroy]
     if @item.update(item_params)
       redirect_to item_path
     else
-      render "edit"
+      render 'edit'
     end
   end
 
@@ -41,7 +40,7 @@ before_action :set_item, only: [:edit, :show, :update, :destroy]
     if @item.destroy
       redirect_to root_path
     else
-      render "show"
+      render 'show'
     end
   end
 
